@@ -1,0 +1,11 @@
+No-name food
+	KCAL:           221
+	FATS:             9
+	CARBS:           15
+	PROTEINS:        20
+No-name food
+	KCAL:           221
+	FATS:             9
+	CARBS:           15
+	PROTEINS:        20
+
