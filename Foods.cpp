@@ -7,16 +7,20 @@
 
 void Foods::writeToFile(std::fstream& out) const
 {
-	// Add to the list from the file
+	for (const auto& food : foodList)
+	{
+		food->writeToFile(out);
+	}
 }
 
 void Foods::readFromFile(std::fstream& in)
 {
-
-	for (const auto& food : foodList)
+	while (!in.eof())
 	{
-		food->readFromFile(in);
+		foodList.emplace_back(new Food());
+		foodList.back()->readFromFile(in);
 	}
+	
 }
 
 void Foods::addFood()
@@ -79,12 +83,12 @@ void Foods::showAllFoods() const
 	}
 	else
 	{
-		short unsigned count = 0;
+		unsigned count = 0;
 
-		std::function<void(short unsigned&, Food&)> printer = [](short unsigned& count, Food& food)
+		std::function<void(Food*)> printer = [&](Food* food)
 		{
 			count++;
-			std::cout << std::setw(15) << food.getName() << std::endl;
+			std::cout << std::setw(15) << food->getName() << std::endl;
 		};
 
 		std::for_each(foodList.begin(), foodList.end(), printer);

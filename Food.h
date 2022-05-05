@@ -11,6 +11,7 @@ protected:
 	std::string _name;
 
 public:
+	Food();
 	Food(int fats, int carbs, int proteins);
 	virtual ~Food() {}
 

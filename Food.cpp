@@ -1,6 +1,10 @@
 #include "Food.h"
 #include <string>
 
+Food::Food()
+{
+}
+
 Food::Food(int fats, int carbs, int proteins)
 	:	_fats(fats), _carbs(carbs), _protein(proteins)
 {

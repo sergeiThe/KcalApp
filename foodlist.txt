@@ -8,4 +8,3 @@ No-name food
 	FATS:             9
 	CARBS:           15
 	PROTEINS:        20
-
