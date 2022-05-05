@@ -25,10 +25,10 @@ int main()
 
 		switch (command)
 		{
-		case 'N':		gFoodies.addFood();			break;
-		case 'D':		gFoodies.deleteFood();		break;
-		case 'S':		gFoodies.showAllFoods();	break;
-		case 'Q':		cout << "\nQutting...\n";	break;
+		case 'N':	gFoodies.addFood();			break;
+		case 'D':	gFoodies.deleteFood();		break;
+		case 'S':	gFoodies.showAllFoods();	break;
+		case 'Q':	cout << "\nQutting...\n";	break;
 
 		default:
 			cout << "\n\nTry again\n\n";

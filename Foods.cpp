@@ -19,6 +19,9 @@ void Foods::readFromFile(std::fstream& in)
 	{
 		foodList.emplace_back(new Food());
 		foodList.back()->readFromFile(in);
+
+		if (!foodList.back()->getName().length())
+			foodList.pop_back();
 	}
 	
 }
@@ -48,22 +51,24 @@ void Foods::deleteFood()
 		std::string foodName = "";
 		std::getline(std::cin, foodName);
 		
-		toupper(foodName.at(0));
+		foodName.at(0) = toupper(foodName.at(0));
 		for (int i = 1; i < foodName.length(); i++)
-			tolower(foodName.at(i));
+			foodName.at(i) = tolower(foodName.at(i));
 
 		auto it = foodList.begin();
 
 		bool erased = false;
 
 		// Find the match
-		for (; it != foodList.end(); it++)
+		for (; it != foodList.end();)
 		{
 			if ((*it)->getName() == foodName)
 			{
 				foodList.erase(it);
 				erased = true;
 			}
+			else
+				it++;
 		}
 
 		// Message about the result

@@ -32,19 +32,16 @@ void Food::writeToFile(std::fstream& out) const
 
 void Food::readFromFile(std::fstream& in)
 {
-	in.ignore(200, '\n');
-	in.ignore('\t');
+	std::getline(in, _name);
 	in.ignore(14);
 	in >> _kcal;
-	in.ignore('\t');
 	in.ignore(14);
 	in >> _fats;
-	in.ignore('\t');
 	in.ignore(14);
 	in >> _carbs;
-	in.ignore('\t');
 	in.ignore(14);
 	in >> _protein;
+	in.ignore(200, '\n');
 }
 
 std::string Food::getName() const
