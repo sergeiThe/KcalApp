@@ -2,12 +2,13 @@
 #include <fstream>
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 class Food
 {
 protected:
 	int _kcal, _fats, _carbs, _protein;
-
+	std::string _name;
 
 public:
 	Food(int fats, int carbs, int proteins);
@@ -17,5 +18,7 @@ public:
 	virtual void writeData() const;
 	virtual void writeToFile(std::fstream& out) const;
 	virtual void readFromFile(std::fstream& in);
+
+	std::string getName() const;
 };
 

@@ -15,5 +15,6 @@ public:
 
 	void addFood();
 	void deleteFood();
+	void showAllFoods() const;
 };
 

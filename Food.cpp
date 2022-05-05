@@ -5,6 +5,7 @@ Food::Food(int fats, int carbs, int proteins)
 	:	_fats(fats), _carbs(carbs), _protein(proteins)
 {
 	_kcal = fats * 9 + carbs * 4 + proteins * 4;
+	_name = std::string("No-name food");
 }
 
 void Food::writeData() const
@@ -18,7 +19,7 @@ void Food::writeData() const
 
 void Food::writeToFile(std::fstream& out) const
 {
-	out << "No-name food\n"
+	out << _name << "\n"
 		<< std::setw(14) << std::left << "\tKCAL: " << std::right << std::setw(6) << _kcal << "\n"
 		<< std::setw(14) << std::left << "\tFATS: " << std::right << std::setw(6) << _fats << "\n"
 		<< std::setw(14) << std::left << "\tCARBS: " << std::right << std::setw(6) << _carbs << "\n"
@@ -40,4 +41,9 @@ void Food::readFromFile(std::fstream& in)
 	in.ignore('\t');
 	in.ignore(14);
 	in >> _protein;
+}
+
+std::string Food::getName() const
+{
+	return _name;
 }

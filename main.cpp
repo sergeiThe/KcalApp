@@ -8,7 +8,7 @@ using namespace std;
 
 // Datastructure
 Foods gFoodies;
-GlobalFunctions gFunctions;
+const GlobalFunctions gFunctions;
 
 int main()
 {
@@ -27,6 +27,7 @@ int main()
 		{
 		case 'N':		gFoodies.addFood();			break;
 		case 'D':		gFoodies.deleteFood();		break;
+		case 'S':		gFoodies.showAllFoods();	break;
 		case 'Q':		cout << "\nQutting...\n";	break;
 
 		default:
