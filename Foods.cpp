@@ -29,11 +29,21 @@ void Foods::readFromFile(std::fstream& in)
 void Foods::addFood()
 {
 	// ADDING FOOD TO THE LIST HERE
+	std::cout << "\nEnter food name: ";
+	std::string tempName{};
+	std::getline(std::cin, tempName);
+	tempName.front() = toupper(tempName.front());
+
+	int fat, carb, prot = 0;
+
+	fat = lesInt("Enter fat amount per 100gr", 0, 100);
+	carb = lesInt("Enter carb amount per 100gr", 0, 100);
+	prot = lesInt("Enter protein amount per 100gr", 0, 100);
 
 
+	foodList.push_back(new Food(fat, carb, prot, tempName));
 
-
-
+	std::cout << "\n" << tempName << " successfully added\n";
 }
 
 void Foods::deleteFood()
@@ -49,26 +59,33 @@ void Foods::deleteFood()
 	else
 	{
 		std::string foodName = "";
+
+		showAllFoods();
+
+		std::cout << "\nEnter food name for deleting: ";
 		std::getline(std::cin, foodName);
 		
 		foodName.at(0) = toupper(foodName.at(0));
 		for (int i = 1; i < foodName.length(); i++)
 			foodName.at(i) = tolower(foodName.at(i));
 
-		auto it = foodList.begin();
-
 		bool erased = false;
 
+		Food* ptr = nullptr;
+
 		// Find the match
-		for (; it != foodList.end();)
+		for (auto it = foodList.begin(); it != foodList.end(); it++)
 		{
 			if ((*it)->getName() == foodName)
 			{
-				foodList.erase(it);
-				erased = true;
+				ptr = *it;
 			}
-			else
-				it++;
+		}
+
+		if (ptr)
+		{
+			foodList.remove(ptr);
+			erased = true;
 		}
 
 		// Message about the result

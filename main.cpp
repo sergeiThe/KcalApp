@@ -12,9 +12,9 @@ const GlobalFunctions gFunctions;
 
 int main()
 {
-	fstream file("foodlist.txt", ios::in | ios::out);
-
+	fstream file("foodlist.txt", ios::in);
 	gFoodies.readFromFile(file);
+	file.close();
 
 	char command;
 
@@ -39,7 +39,7 @@ int main()
 
 
 
-
+	file.open("foodlist.txt", ios::out );
 	gFoodies.writeToFile(file);
 	file.close();
 	return 0;

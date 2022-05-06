@@ -1,10 +1,10 @@
-No-name food
-	KCAL:           221
-	FATS:             9
-	CARBS:           15
-	PROTEINS:        20
-No-name food
-	KCAL:           500
-	FATS:            70
-	CARBS:           40
-	PROTEINS:        55
+Sausage
+	KCAL:            34
+	FATS:             2
+	CARBS:            2
+	PROTEINS:         2
+Cucumber
+	KCAL:           510
+	FATS:            30
+	CARBS:           20
+	PROTEINS:        40

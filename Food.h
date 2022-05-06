@@ -12,7 +12,7 @@ protected:
 
 public:
 	Food();
-	Food(int fats, int carbs, int proteins);
+	Food(int fats, int carbs, int proteins, std::string name);
 	virtual ~Food() {}
 
 	// Functions
