@@ -20,6 +20,6 @@ public:
 	virtual void writeToFile(std::fstream& out) const;
 	virtual void readFromFile(std::fstream& in);
 
-	std::string getName() const;
+	const std::string& getName() const;
 };
 

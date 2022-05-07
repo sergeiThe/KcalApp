@@ -45,7 +45,7 @@ void Food::readFromFile(std::fstream& in)
 	in.ignore(200, '\n');
 }
 
-std::string Food::getName() const
+const std::string& Food::getName() const
 {
 	return _name;
 }
