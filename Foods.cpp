@@ -4,6 +4,9 @@
 #include <algorithm>
 #include <functional>
 #include "LesData3.h"
+#include "Breakfast.h"
+#include "Dinner.h"
+#include "Lunch.h"
 
 void Foods::writeToFile(std::fstream& out) const
 {
@@ -29,6 +32,12 @@ void Foods::readFromFile(std::fstream& in)
 void Foods::addFood()
 {
 	// ADDING FOOD TO THE LIST HERE
+
+
+	int type = lesInt("Enter type (Breakfast - 1, Lunch - 2, Dinner - 3)", 1, 3);
+
+
+
 	std::cout << "\nEnter food name: ";
 	std::string tempName{};
 	std::getline(std::cin, tempName);
@@ -39,6 +48,7 @@ void Foods::addFood()
 	fat = lesInt("Enter fat amount per 100gr", 0, 100);
 	carb = lesInt("Enter carb amount per 100gr", 0, 100);
 	prot = lesInt("Enter protein amount per 100gr", 0, 100);
+
 
 
 	foodList.push_back(new Food(fat, carb, prot, tempName));

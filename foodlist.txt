@@ -1,9 +1,11 @@
 Sausage
+Type: No-name food
 	KCAL:            34
 	FATS:             2
 	CARBS:            2
 	PROTEINS:         2
 Cucumber
+Type: No-name food
 	KCAL:           510
 	FATS:            30
 	CARBS:           20
