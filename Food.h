@@ -23,8 +23,8 @@ public:
 
 	// Functions
 	virtual void writeData() const;
-	virtual void writeToFile(std::fstream& out) const;
-	virtual void readFromFile(std::fstream& in);
+	void writeToFile(std::fstream& out) const;
+	void readFromFile(std::fstream& in);
 
 	const std::string& getName() const;
 

@@ -18,13 +18,33 @@ void Foods::writeToFile(std::fstream& out) const
 
 void Foods::readFromFile(std::fstream& in)
 {
-	while (!in.eof())
-	{
-		foodList.emplace_back(new Food());
-		foodList.back()->readFromFile(in);
 
-		if (!foodList.back()->getName().length())
-			foodList.pop_back();
+	std::string tempName{};
+
+	while (in >> tempName) // That this can read in something
+	{
+		if (tempName.length())
+		{
+			in.ignore(6);
+			std::string type;
+			// Check type
+			in >> type;
+
+			if (type == "Breakfast")
+				foodList.emplace_back(new Breakfast(tempName));
+			else if (type == "Lunch")
+				foodList.emplace_back(new Lunch(tempName));
+			else if (type == "Dinner")
+				foodList.emplace_back(new Dinner(tempName));
+			else
+				foodList.emplace_back(new Food());
+
+			foodList.back()->readFromFile(in);
+
+			// if (!foodList.back()->getName().length())
+			//	foodList.pop_back();
+		}
+
 	}
 	
 }

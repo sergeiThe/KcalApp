@@ -1,8 +1,9 @@
 #include "Dinner.h"
 
-Dinner::Dinner()
+Dinner::Dinner(const std::string& name)
 	: Food()
 {
+	_name = name;
 	setType(FoodType::DINNER);
 }
 
@@ -21,10 +22,3 @@ void Dinner::writeData() const
 		<< std::setw(14) << std::left << "\tPROTEINS: " << std::right << std::setw(6) << _protein << "\n\n\n";
 }
 
-void Dinner::writeToFile(std::fstream& out) const
-{
-}
-
-void Dinner::readFromFile(std::fstream& in)
-{
-}

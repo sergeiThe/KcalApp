@@ -44,9 +44,9 @@ void Food::writeToFile(std::fstream& out) const
 
 void Food::readFromFile(std::fstream& in)
 {
-	std::getline(in, _name);
-	in.ignore(6);
-	in >> type;
+	// std::getline(in, _name);
+	// in.ignore(6);
+	// in >> type;
 	in.ignore(14);
 	in >> _kcal;
 	in.ignore(14);
