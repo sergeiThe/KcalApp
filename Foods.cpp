@@ -37,7 +37,6 @@ void Foods::addFood()
 	int type = lesInt("Enter type (Breakfast - 1, Lunch - 2, Dinner - 3)", 1, 3);
 
 
-
 	std::cout << "\nEnter food name: ";
 	std::string tempName{};
 	std::getline(std::cin, tempName);
@@ -50,8 +49,14 @@ void Foods::addFood()
 	prot = lesInt("Enter protein amount per 100gr", 0, 100);
 
 
-
-	foodList.push_back(new Food(fat, carb, prot, tempName));
+	// Add food of certain type
+	switch (type)
+	{
+	case 1:		foodList.push_back(new Breakfast(fat, carb, prot, tempName));		break;
+	case 2:		foodList.push_back(new Lunch(fat, carb, prot, tempName));			break;
+	case 3:		foodList.push_back(new Dinner(fat, carb, prot, tempName));			break;
+	default:	foodList.push_back(new Food(fat, carb, prot, tempName));
+	}
 
 	std::cout << "\n" << tempName << " successfully added\n";
 }
